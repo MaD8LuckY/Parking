@@ -1,0 +1,43 @@
+.red {
+  display: block;
+
+  border: none;
+  border-radius: 20px;
+  padding: 10px 15px;
+
+  background-color: transparent;
+  cursor: pointer;
+
+  font-family: 'TinkoffSans', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration:dashed;
+
+  transition: background-color .2s linear;
+}
+
+.red:hover {
+  background-color: rgba(255, 134, 134, 0.5);
+}
+
+.green {
+  display: block;
+
+  border: none;
+  border-radius: 20px;
+  padding: 10px 15px;
+
+  background-color: transparent;
+  cursor: pointer;
+
+  font-family: 'TinkoffSans', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration:dashed;
+
+  transition: background-color .2s linear;
+}
+
+.green:hover {
+  background-color: rgba(134, 255, 134,0.5);
+}

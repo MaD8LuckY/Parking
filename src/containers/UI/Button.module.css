@@ -1,0 +1,14 @@
+.button {
+  background-color: #FFDD2D;
+  color: black;
+  height: 50px;
+
+  border: none;
+  border-radius: 10px;
+  padding: 10px 35px;
+  
+  font-family: 'TinkoffSans';
+  font-weight: 400;
+  font-size: 20px;
+
+}
