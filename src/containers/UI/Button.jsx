@@ -1,11 +1,11 @@
 import styleButton from './Button.module.css'
 
-const Button = (props) => { // нужны размеры
-
-  const onSubmit = () => {}
+const Button = (props) => {
 
     return(
-      <button className={styleButton.button}>{props.text}</button>
+      <button className={styleButton.button}>
+        {props.text}
+      </button>
     )
 }
 

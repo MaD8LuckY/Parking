@@ -1,6 +1,4 @@
 import { Dropdown, Menu, Space } from 'antd';
-import Link from 'antd/es/typography/Link';
-import styleMenu from './Menu.module.css'
 
 const menuItems = [
   {

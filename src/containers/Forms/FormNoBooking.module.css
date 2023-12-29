@@ -33,5 +33,13 @@
 
 .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+
+  width: 50px;
 }

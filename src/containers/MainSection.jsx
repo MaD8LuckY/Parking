@@ -4,7 +4,7 @@ import mapFloor2 from '../images/map2.svg'
 import CreaterList from "./CreaterList";
 import styleMainSection from './MainSection.module.css'
 
-const MainSection = () => { // нужны размеры
+const MainSection = () => {
     return(
       <main className={styleMainSection.main}>
         <div className={styleMainSection.mapDiv}>
