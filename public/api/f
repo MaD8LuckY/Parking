@@ -1,0 +1,56 @@
+{
+    "active_lots": [],
+    "inactive_lots": [
+        {
+            "id": 5,
+            "status": 0,
+            "floor": 1 
+        },
+        {
+            "id": 6,
+            "status": 0,
+            "floor": 1 
+        },
+        {
+            "id": 7,
+            "status": 0,
+            "floor": 1 
+        },
+        {
+            "id": 8,
+            "status": 0,
+            "floor": 1 
+        },
+        {
+            "id": 9,
+            "status": 0,
+            "floor": 1 
+        },
+        {
+            "id": 10,
+            "status": 0,
+            "floor": 1 
+        },
+        {
+            "id": 19,
+            "status": 0,
+            "floor": 2 
+        },
+        {
+            "id": 20,
+            "status": 0,
+            "floor": 2 
+        },
+        {
+            "id": 21,
+            "status": 0,
+            "floor": 2 
+        },
+        {
+            "id": 23,
+            "status": 0,
+            "floor": 2 
+        }
+    ]
+}
+

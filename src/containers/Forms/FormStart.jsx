@@ -4,9 +4,11 @@ import { useSelector } from "react-redux";
 import styleForm from './FormStart.module.css';
 import { useNavigate } from "react-router-dom";
 import { apiPost } from "../../service/server";
+import { useState } from "react";
 
 const FormStart = () => {
 
+  const [err, setErr] = useState('no')
   const navigate = useNavigate()
   const log = useSelector((state) => state.auth.login)
   const pass = useSelector((state) => state.auth.password)
@@ -20,24 +22,33 @@ const FormStart = () => {
         "password": pass,
       }
       ).then(res => {
-          if(res.auth === 1){
-              navigate('main', {replace: 'true'})
-            } 
-          else if (res.auth === 0) {
-              alert('Неверно введены данные')
-          }
+        if (res.auth === 1) {
+          setErr('no')
+          navigate('main', { replace: 'true' })
         }
-      ).catch(err => console.log('createBooking err', err));
+        else if (res.auth === 0) {
+          setErr('errData')
+        }
+      }
+      ).catch(res => setErr('errSys'));
     };
 
     authorization()
-   }
+  }
 
   return (
     <form onSubmit={entrance} className={styleForm.form}>
-      <Input name="Логин" type="text" id='login'/>
-      <Input name="Пароль" type="password" id='password'/>
-      <Button text="Войти"/>
+      {err === 'errSys' ?
+        <p style={{ color: '#f00', marginBottom: '5px' }}>Ошибка системы</p>
+        :
+        err === 'no' ?
+          <></>
+          :
+          <p style={{ color: '#f00', marginBottom: '5px' }}>Введены неверные данные</p>
+      }
+      <Input name="Логин" type="text" id='login' />
+      <Input name="Пароль" type="password" id='password' />
+      <Button text="Войти" />
     </form>
   )
 }
