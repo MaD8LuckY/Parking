@@ -1,5 +1,3 @@
-import styleMap from './Map.module.css'
-
 const Map = ({floor, lots}) => {
   switch (floor) {
     case 1:

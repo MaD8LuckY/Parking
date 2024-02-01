@@ -15,7 +15,7 @@ const MainSection = () => {
   const dispatch = useDispatch()
 
   const fetchData = async () => {
-    const responce = await apiGet('/api/get_lots/')
+    await apiGet('/api/get_lots/')
       .then(res => {
 
         const greenLots = res.active_lots.map(item => { // список свободных мест
@@ -69,7 +69,7 @@ const MainSection = () => {
             }
           });
 
-          return <div className={styleMainSection.mapsCard}>
+          return <div key={floor} className={styleMainSection.mapsCard}>
             <Map floor={floor} lots={lots}/>
             <CreaterList places={lots} />
           </div>
