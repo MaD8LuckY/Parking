@@ -1,0 +1,28 @@
+.container {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  right: calc(100% + 25px);
+  top: 0;
+
+  padding: 10px 15px;
+  background-color: #5C636B;
+  z-index: 1000;
+  width: 520px;
+
+  color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #5C636B;
+}

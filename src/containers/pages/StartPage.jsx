@@ -1,8 +1,10 @@
-import logo from '../images/logo2.svg';
-import FormStart from '../containers/Forms/FormStart';
+import logo from '../../images/logoYellow.svg';
+import FormStart from '../Forms/FormStart';
 import styleStart from './Start.module.css'
 
 const Start = () => {
+  localStorage.clear();
+  
   return(
     <div className={styleStart.start}>
       <img className={styleStart.logo} src={logo} alt=""></img>

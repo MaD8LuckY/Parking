@@ -1,15 +1,23 @@
 .form {
   position: absolute;
-  top: 200px;
-  right: 100px;
-  width: 450px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 630px;
   text-align: center;
 
   border-radius: 20px;
-  padding: 50px 0;
+  padding: 50px;
 
 
   background-color: #fff;
+}
 
+.err {
+  color: #f00;
 
+  margin-top: 10px;
+  font-size: 16px;
+
+  height: 20px;
 }

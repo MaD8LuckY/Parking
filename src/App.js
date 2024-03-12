@@ -1,5 +1,5 @@
-import Start from './pages/StartPage';
-import Main from './pages/MainPage';
+import Start from './containers/pages/StartPage';
+import Main from './containers/pages/MainPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styleApp from './App.module.css'
 

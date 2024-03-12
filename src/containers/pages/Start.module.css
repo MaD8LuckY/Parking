@@ -1,22 +1,21 @@
 .start {
   position: relative;
   min-height: 100vh;
+  width: 1290px;
+  margin: auto;
 }
 
 .logo {
   position: absolute;
-  width: 100px;
-  top: 30px;
-  left: 100px;
+  top: 35px;
 }
 
 .title {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 100px;
 
-  font-size: 69px;
+  font-size: 70px;
   font-weight: 700;
 }
 
