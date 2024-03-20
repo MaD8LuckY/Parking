@@ -58,13 +58,16 @@ const Notification = () => {
               {
                 notif.map((item) => {
                   return <li key={item.id} className={styleNoti.li}>
+                    <div className={styleNoti.imgDiv}>
                     <img src={
-                      item.section === 'Карты' ?
-                        map
-                        :
-                        anal
-                    } alt="" />
-                    <div>
+                        item.section === 'Карты' ?
+                          map
+                          :
+                          anal
+                      } alt="" />
+                      <div></div>
+                    </div>
+                    <div className={styleNoti.textDiv}>
                       <h4>{item.section}</h4>
                       <p>{item.text}</p>
                     </div>

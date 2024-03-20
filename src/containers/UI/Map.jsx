@@ -1,13 +1,15 @@
 import styleMap from './CSS/Map.module.css'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { setNoBookingVisibility } from "../../features/noBooking/noBookingSlice"
 import { setBookingVisibility } from '../../features/booking/bookingSlice'
 import { setID } from "../../features/ID/IDSlice";
 
-const Map = ({ floor, lots }) => {
+const Map = ({ floor }) => {
+
   const dispatch = useDispatch();
+  const places = useSelector((state) => state.placesList.places)
 
   const booking = (id) => {
     dispatch(setBookingVisibility(true))
@@ -57,12 +59,12 @@ const Map = ({ floor, lots }) => {
           <polyline fill="none" stroke="#000000" strokeWidth="3" strokeMiterlimit="10" points="111.25,71 124.042,71 124.042,26.75 " />
           <line fill="none" stroke="#000000" strokeWidth="3" strokeMiterlimit="10" x1="230.5" y1="24.667" x2="230.5" y2="83.875" />
           <polyline fill="none" stroke="#000000" strokeWidth="3" strokeMiterlimit="10" points="230.5,125.833 230.5,141 336,141 " />
-          <rect x="228.5" y="156.5" fill="#FFFFFF" stroke={lots.filter(item => item.id === 10)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
-          <rect x="228.5" y="220" fill="#FFFFFF" stroke={lots.filter(item => item.id === 9)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
-          <rect x="228.5" y="296" fill="#FFFFFF" stroke={lots.filter(item => item.id === 8)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
-          <rect x="228.5" y="356" fill="#FFFFFF" stroke={lots.filter(item => item.id === 7)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
-          <rect x="228.5" y="432.917" fill="#FFFFFF" stroke={lots.filter(item => item.id === 6)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
-          <rect x="373.5" y="432.917" fill="#FFFFFF" stroke={lots.filter(item => item.id === 5)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
+          <rect x="228.5" y="156.5" fill="#FFFFFF" stroke={places.filter(item => item.id === 10)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
+          <rect x="228.5" y="220" fill="#FFFFFF" stroke={places.filter(item => item.id === 9)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
+          <rect x="228.5" y="296" fill="#FFFFFF" stroke={places.filter(item => item.id === 8)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
+          <rect x="228.5" y="356" fill="#FFFFFF" stroke={places.filter(item => item.id === 7)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
+          <rect x="228.5" y="432.917" fill="#FFFFFF" stroke={places.filter(item => item.id === 6)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
+          <rect x="373.5" y="432.917" fill="#FFFFFF" stroke={places.filter(item => item.id === 5)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="121.5" height="49.5" />
           <rect x="430.709" y="452" fill="none" width="13.5" height="17.5" />
           <text transform="matrix(1 0 0 1 430.709 464.8877)" fontFamily="'ArialMT'" fontSize="18">5</text>
           <rect x="288.249" y="448.917" fill="none" width="13.5" height="17.5" />
@@ -190,12 +192,12 @@ const Map = ({ floor, lots }) => {
             <g transform="translate(230.5 469.447)">
               <path fill="none" stroke="#2b2b2a" strokeDasharray="none" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" strokeOpacity="1" strokeWidth="3" d="M0 0v-15.167h105.5" ></path>
             </g>
-            <g onClick={lots.filter(item => item.id === 10)[0].active === 'inactive' ? () => booking(lots.filter(item => item.id === 10)[0].id) : () => noBooking(lots.filter(item => item.id === 10)[0].id)} textAnchor="middle">
+            <g onClick={places.filter(item => item.id === 10)[0].active === 'inactive' ? () => booking(places.filter(item => item.id === 10)[0].id) : () => noBooking(places.filter(item => item.id === 10)[0].id)} textAnchor="middle">
               <path
                 fill="#fff"
                 fillOpacity="1"
                 fillRule="nonzero"
-                stroke={lots.filter(item => item.id === 10)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
+                stroke={places.filter(item => item.id === 10)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
                 strokeDasharray="none"
                 strokeLinecap="butt"
                 strokeLinejoin="miter"
@@ -230,16 +232,16 @@ const Map = ({ floor, lots }) => {
                 transform="scale(1 -1)"
               >
                 <tspan x="300" y="-410.721" strokeWidth="0.75">
-                  10{lots.filter(item => item.id === 10)[0].active === 'inactive' ? '' : ` - ${lots.filter(item => item.id === 10)[0].carNumber}`}
+                  10{places.filter(item => item.id === 10)[0].active === 'inactive' ? '' : ` - ${places.filter(item => item.id === 10)[0].carNumber}`}
                 </tspan>
               </text>
             </g>
-            <g onClick={lots.filter(item => item.id === 9)[0].active === 'inactive' ? () => booking(lots.filter(item => item.id === 9)[0].id) : () => noBooking(lots.filter(item => item.id === 9)[0].id)} textAnchor="middle">
+            <g onClick={places.filter(item => item.id === 9)[0].active === 'inactive' ? () => booking(places.filter(item => item.id === 9)[0].id) : () => noBooking(places.filter(item => item.id === 9)[0].id)} textAnchor="middle">
               <path
                 fill="#fff"
                 fillOpacity="1"
                 fillRule="nonzero"
-                stroke={lots.filter(item => item.id === 9)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
+                stroke={places.filter(item => item.id === 9)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
                 strokeDasharray="none"
                 strokeLinecap="butt"
                 strokeLinejoin="miter"
@@ -274,16 +276,16 @@ const Map = ({ floor, lots }) => {
                 transform="scale(1 -1)"
               >
                 <tspan x="300" y="-347.94" strokeWidth="0.75">
-                  9{lots.filter(item => item.id === 9)[0].active === 'inactive' ? '' : ` - ${lots.filter(item => item.id === 9)[0].carNumber}`}
+                  9{places.filter(item => item.id === 9)[0].active === 'inactive' ? '' : ` - ${places.filter(item => item.id === 9)[0].carNumber}`}
                 </tspan>
               </text>
             </g>
-            <g onClick={lots.filter(item => item.id === 8)[0].active === 'inactive' ? () => booking(lots.filter(item => item.id === 8)[0].id) : () => noBooking(lots.filter(item => item.id === 8)[0].id)} textAnchor="middle">
+            <g onClick={places.filter(item => item.id === 8)[0].active === 'inactive' ? () => booking(places.filter(item => item.id === 8)[0].id) : () => noBooking(places.filter(item => item.id === 8)[0].id)} textAnchor="middle">
               <path
                 fill="#fff"
                 fillOpacity="1"
                 fillRule="nonzero"
-                stroke={lots.filter(item => item.id === 8)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
+                stroke={places.filter(item => item.id === 8)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
                 strokeDasharray="none"
                 strokeLinecap="butt"
                 strokeLinejoin="miter"
@@ -318,16 +320,16 @@ const Map = ({ floor, lots }) => {
                 transform="scale(1 -1)"
               >
                 <tspan x="300" y="-270" strokeWidth="0.75">
-                  8{lots.filter(item => item.id === 8)[0].active === 'inactive' ? '' : ` - ${lots.filter(item => item.id === 8)[0].carNumber}`}
+                  8{places.filter(item => item.id === 8)[0].active === 'inactive' ? '' : ` - ${places.filter(item => item.id === 8)[0].carNumber}`}
                 </tspan>
               </text>
             </g>
-            <g onClick={lots.filter(item => item.id === 7)[0].active === 'inactive' ? () => booking(lots.filter(item => item.id === 7)[0].id) : () => noBooking(lots.filter(item => item.id === 7)[0].id)} textAnchor="middle">
+            <g onClick={places.filter(item => item.id === 7)[0].active === 'inactive' ? () => booking(places.filter(item => item.id === 7)[0].id) : () => noBooking(places.filter(item => item.id === 7)[0].id)} textAnchor="middle">
               <path
                 fill="#fff"
                 fillOpacity="1"
                 fillRule="nonzero"
-                stroke={lots.filter(item => item.id === 7)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
+                stroke={places.filter(item => item.id === 7)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
                 strokeDasharray="none"
                 strokeLinecap="butt"
                 strokeLinejoin="miter"
@@ -362,16 +364,16 @@ const Map = ({ floor, lots }) => {
                 transform="scale(1 -1)"
               >
                 <tspan x="300" y="-208.386" strokeWidth="0.75">
-                  7{lots.filter(item => item.id === 7)[0].active === 'inactive' ? '' : ` - ${lots.filter(item => item.id === 7)[0].carNumber}`}
+                  7{places.filter(item => item.id === 7)[0].active === 'inactive' ? '' : ` - ${places.filter(item => item.id === 7)[0].carNumber}`}
                 </tspan>
               </text>
             </g>
-            <g onClick={lots.filter(item => item.id === 6)[0].active === 'inactive' ? () => booking(lots.filter(item => item.id === 6)[0].id) : () => noBooking(lots.filter(item => item.id === 6)[0].id)} textAnchor="middle">
+            <g onClick={places.filter(item => item.id === 6)[0].active === 'inactive' ? () => booking(places.filter(item => item.id === 6)[0].id) : () => noBooking(places.filter(item => item.id === 6)[0].id)} textAnchor="middle">
               <path
                 fill="#fff"
                 fillOpacity="1"
                 fillRule="nonzero"
-                stroke={lots.filter(item => item.id === 6)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
+                stroke={places.filter(item => item.id === 6)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
                 strokeDasharray="none"
                 strokeLinecap="butt"
                 strokeLinejoin="miter"
@@ -406,16 +408,16 @@ const Map = ({ floor, lots }) => {
                 transform="scale(1 -1)"
               >
                 <tspan x="300" y="-132.369" strokeWidth="0.75">
-                  6{lots.filter(item => item.id === 6)[0].active === 'inactive' ? '' : ` - ${lots.filter(item => item.id === 6)[0].carNumber}`}
+                  6{places.filter(item => item.id === 6)[0].active === 'inactive' ? '' : ` - ${places.filter(item => item.id === 6)[0].carNumber}`}
                 </tspan>
               </text>
             </g>
-            <g onClick={lots.filter(item => item.id === 5)[0].active === 'inactive' ? () => booking(lots.filter(item => item.id === 5)[0].id) : () => noBooking(lots.filter(item => item.id === 5)[0].id)} textAnchor="middle">
+            <g onClick={places.filter(item => item.id === 5)[0].active === 'inactive' ? () => booking(places.filter(item => item.id === 5)[0].id) : () => noBooking(places.filter(item => item.id === 5)[0].id)} textAnchor="middle">
               <path
                 fill="#fff"
                 fillOpacity="1"
                 fillRule="nonzero"
-                stroke={lots.filter(item => item.id === 5)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
+                stroke={places.filter(item => item.id === 5)[0].active === 'inactive' ? '#0AB331' : '#F05255'}
                 strokeDasharray="none"
                 strokeLinecap="butt"
                 strokeLinejoin="miter"
@@ -450,7 +452,7 @@ const Map = ({ floor, lots }) => {
                 transform="scale(1 -1)"
               >
                 <tspan x="440" y="-131.99" strokeWidth="0.75">
-                  5{lots.filter(item => item.id === 5)[0].active === 'inactive' ? '' : ` - ${lots.filter(item => item.id === 5)[0].carNumber}`}
+                  5{places.filter(item => item.id === 5)[0].active === 'inactive' ? '' : ` - ${places.filter(item => item.id === 5)[0].carNumber}`}
                 </tspan>
               </text>
             </g>
@@ -502,10 +504,10 @@ const Map = ({ floor, lots }) => {
           <polyline fill="none" stroke="#000000" strokeWidth="3" strokeMiterlimit="10" points="111.25,71 124.042,71 124.042,26.75 " />
           <line fill="none" stroke="#000000" strokeWidth="3" strokeMiterlimit="10" x1="230.5" y1="24.667" x2="230.5" y2="83.875" />
           <polyline fill="none" stroke="#000000" strokeWidth="3" strokeMiterlimit="10" points="230.5,125.833 230.5,141 336,141 " />
-          <rect x="605.333" y="63.5" fill="#FFFFFF" stroke={lots.filter(item => item.id === 21)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="115.667" height="49.5" />
-          <rect x="605.333" y="127" fill="#FFFFFF" stroke={lots.filter(item => item.id === 20)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="115.667" height="49.5" />
-          <rect x="605.333" y="191" fill="#FFFFFF" stroke={lots.filter(item => item.id === 19)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="115.667" height="49.5" />
-          <rect x="373.5" y="294.917" fill="#FFFFFF" stroke={lots.filter(item => item.id === 23)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="116.5" height="49.5" />
+          <rect x="605.333" y="63.5" fill="#FFFFFF" stroke={places.filter(item => item.id === 21)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="115.667" height="49.5" />
+          <rect x="605.333" y="127" fill="#FFFFFF" stroke={places.filter(item => item.id === 20)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="115.667" height="49.5" />
+          <rect x="605.333" y="191" fill="#FFFFFF" stroke={places.filter(item => item.id === 19)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="115.667" height="49.5" />
+          <rect x="373.5" y="294.917" fill="#FFFFFF" stroke={places.filter(item => item.id === 23)[0].active === 'inactive' ? '#0AB331' : '#F05255'} strokeWidth="3" strokeMiterlimit="10" width="116.5" height="49.5" />
           <rect x="425.209" y="314" fill="none" width="22.5" height="17.5" />
           <text transform="matrix(1 0 0 1 425.209 326.8877)" fontFamily="'ArialMT'" fontSize="18">23</text>
           <rect x="653.499" y="208.662" fill="none" width="21.5" height="17.5" />

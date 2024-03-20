@@ -4,6 +4,7 @@ import noBookingSlice from "../features/noBooking/noBookingSlice";
 import sectionSlice  from "../features/section/sectionSlice";
 import IDSlice from "../features/ID/IDSlice";
 import restartingSlice from "../features/restarting/restartingSlice";
+import placesListSlice from "../features/places/placesListSlice";
 
 export const store = configureStore({
     reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
         section: sectionSlice,
         id: IDSlice,
         restart: restartingSlice,
+        placesList: placesListSlice,
     },
 })

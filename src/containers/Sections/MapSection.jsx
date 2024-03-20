@@ -9,16 +9,16 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { apiGet } from "../../service/server";
 import { setNeed } from "../../features/restarting/restartingSlice";
+import { setPlaces } from '../../features/places/placesListSlice';
 import axios from 'axios';
 import TablePlaces from '../UI/TablePlaces';
 
 
 const MapSection = () => {
 
-  const [places, setPlace] = useState([])
-  //const [floors, setFloors] = useState([]) 
   const [floorNumber, setFloorNumber] = useState(1)
   const restarting = useSelector((state) => state.restart.isNeed)
+  const placesList = useSelector((state) => state.placesList.places)
   const dispatch = useDispatch()
 
   const fetchData = async () => {
@@ -55,9 +55,6 @@ const MapSection = () => {
     //   .catch(err => console.log('lots err', err));
 
     await axios.get('https://65a8c529219bfa3718678849.mockapi.io/auth').then(res => {
-      // setFloors([...new Set(res.data[2].map(item => {
-      //   return item.floor
-      // }))])
 
       let redLots = res.data[3].active_lots.filter((item) =>
         (item.floor === floorNumber)
@@ -92,7 +89,7 @@ const MapSection = () => {
         }
       })
 
-      setPlace(listOfLots);
+      dispatch(setPlaces(listOfLots));
     });
   }
 
@@ -109,7 +106,7 @@ const MapSection = () => {
 
   const onChangeSelect = (value) => {
     if (floorNumber !== value) {
-      setPlace([])
+      dispatch(setPlaces([]))
     }
     setFloorNumber(value);
   }
@@ -120,14 +117,14 @@ const MapSection = () => {
     <main className={styleMainSection.main}>
       <Select options={floors} onChange={onChangeSelect} />
       {
-        places.length === 0 ?
+        placesList.length === 0 ?
           <section className={styleMainSection.maps}>
             <p className={styleMainSection.pData}>Загрузка данных</p>
           </section>
           :
           <section className={styleMainSection.section}>
-            <Map floor={floorNumber} lots={places} />
-            <TablePlaces lots={places} />
+            <Map floor={floorNumber} />
+            <TablePlaces lots={placesList} />
 
           </section>
       }

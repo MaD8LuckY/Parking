@@ -57,7 +57,7 @@ const FormBooking = () => { // placeholder type
       }
     };
 
-    booking()
+    booking();
   }
 
   return (
