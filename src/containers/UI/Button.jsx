@@ -1,10 +1,11 @@
-import styleButton from './Button.module.css'
+import styleButton from './CSS/Button.module.css'
 
-const Button = (props) => {
+const Button = ({text, onClick }) => {
 
     return(
-      <button className={styleButton.button}>
-        {props.text}
+      <button className={text === "Отмена" ? styleButton.cancel : styleButton.button}
+      onClick={onClick}>
+        {text}
       </button>
     )
 }

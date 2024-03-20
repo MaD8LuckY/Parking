@@ -1,0 +1,38 @@
+.form {
+  margin: auto;
+  width: 630px;
+  text-align: center;
+
+  border-radius: 20px;
+  padding: 50px;
+
+
+  background-color: #fff;
+}
+
+.err {
+  color: #F05255;
+
+  margin-top: 10px;
+  font-size: 16px;
+
+  height: 20px;
+}
+
+.suc {
+  color: #0AB331;
+
+  margin-top: 10px;
+  font-size: 16px;
+
+  height: 20px;
+}
+
+.form h2 {
+  font-size: 26px;
+
+  margin-bottom: 20px;
+
+  width: 100%;
+  text-align: start;
+}

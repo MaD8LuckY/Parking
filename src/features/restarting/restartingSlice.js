@@ -5,7 +5,7 @@ const initialState = {
 }
 
 export const restartingSlice = createSlice({
-    name: 'REstart',
+    name: 'restart',
     initialState,
     reducers: {
         setNeed: (state, action) => {

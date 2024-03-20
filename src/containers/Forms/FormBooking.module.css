@@ -15,8 +15,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 500px;
-  padding: 50px 75px;
+  width: 630px;
+  padding: 50px;
   border-radius: 20px;
 
   text-align: center;
@@ -25,25 +25,21 @@
 }
 
 .title {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 500;
+  line-height: 60px;
 
-  margin-bottom: 30px;
-}
-
-
-.close {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-
-  width: 50px;
+  margin-bottom: 20px;
 }
 
 .formAction {
-  display: flex;
 }
 
-.formAction input {
-  margin: 0;
+.formAction p {
+  padding-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
 }

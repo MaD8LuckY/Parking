@@ -26,7 +26,7 @@ export const apiPost = async (url, params = {}) => {
 
   let dataJson = await data.json();
 
-  return (dataJson|| false);
+  return (dataJson || false);
 };
 
 export const apiGet = async (url, params = {}) => {
@@ -47,5 +47,5 @@ export const apiGet = async (url, params = {}) => {
     cache: "default",
   })
   let dataJson = await data.json();
-  return (dataJson|| false);
+  return (dataJson || false);
 };
