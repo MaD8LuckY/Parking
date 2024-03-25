@@ -1,0 +1,56 @@
+.li {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.li:nth-child(1){
+  padding-top: 0;
+}
+
+.textDiv {
+  width: 280px;
+  position: relative;
+}
+
+.li h4 {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.li p{
+  font-size: 16px; 
+  position: absolute;
+  bottom: 0;
+}
+
+.imgDiv {
+  position: relative;
+
+  width: 60px;
+  height: 60px;
+}
+
+.imgDiv > div{
+  position: absolute;
+
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 10px;
+  background-color: #FFDD2D;
+}
+
+.imgDiv > img {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  z-index: 1;
+}

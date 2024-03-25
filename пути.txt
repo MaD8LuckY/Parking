@@ -1,0 +1,5 @@
+AuthPage
+  logo(shared/images)
+  <h2></h2>
+  <Form>
+            
