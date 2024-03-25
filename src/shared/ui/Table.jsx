@@ -10,23 +10,6 @@ const Table = ({ title, items }) => {
           <tbody >
             {
               items.map((item) => {
-                // if (item.active === 'active')
-                //   return <tr key={item.id}>
-                //     <td >{item.id}</td>
-                //     <td >{item.name}</td>
-                //     <td >{item.carNumber}</td>
-                //     <td >{item.time}</td>
-                //     <td ><Tooltip data='Место 8 на парковке занято a123az, а в приложении свободно' /></td>
-                //   </tr>
-                // else {
-                //   return <tr key={item.id} >
-                //     <td >{item.id}</td>
-                //     <td >{item.name}</td>
-                //     <td ></td>
-                //     <td ></td>
-                //     <td ></td>
-                //   </tr>
-                // }
                 let keys = item.keys();
                 return <tr key={item.id}>
                   {/* Не забыть про подгрузку tooltip + понять как сделать */}

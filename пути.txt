@@ -1,5 +1,202 @@
-AuthPage
-  logo(shared/images)
-  <h2></h2>
-  <Form>
-            
+---------------------------------fetchParkingList.js---------------------------
+
+// await apiGet('/api/get_lots/')
+  //   .then(res => {
+
+  //     const greenLots = res.active_lots.map(item => { // список свободных мест
+  //       return {
+  //         'id': item.id,
+  //         'title': `${item.id} - ${item.secondName} ${item.firstName} - ${item.carNumber} - ${item.startTime.split(' ')[1].substr(0, 5)}`,
+  //         'color': 'red',
+  //         'floor': item.floor
+  //       }
+  //     })
+  //     const redLots = res.inactive_lots.map(item => { // список занятых мест
+  //       return {
+  //         'id': item.id,
+  //         'title': `${item.id} - Cвободно`,
+  //         'color': 'green',
+  //         'floor': item.floor
+  //       }
+  //     })
+
+  //     const listOfLots = [...new Set([...greenLots, ...redLots])].sort(function (a, b) { // сортировка
+  //       return a.id - b.id;
+  //     });
+  //     setPlace(listOfLots);
+
+  //     setFloors([...new Set(listOfLots.map(item => {
+  //       return item.floor
+  //     }))])
+
+  //   })
+  //   .catch(err => console.log('lots err', err));
+
+
+---------------------------------auth.js---------------------------
+
+// const entrance = (e) => { // api
+//   e.preventDefault()
+
+//   const authorization = async () => {
+//     //   if (log === '' || pass === '') {
+//     //     setErr('noData')
+//     //   }
+//     //   else {
+//     //   await apiPost('/api/token/', {
+//     //     "login": log,
+//     //     "password": pass,
+//     //     "first_name": "admin",
+//     //     "second_name": "admin"
+//     //   }
+//     //   ).then(res => {
+//     //     // if (res.auth === 1) {
+//     //     //   setErr('no')
+//     //     navigate('main', { replace: 'true' })
+//     //     // }
+//     //     // else if (res.auth === 0) {
+//     //     //   setErr('errData')
+//     //     // }
+//     //   }
+//     //   ).catch(res => setErr('errSys'));
+//     // }
+
+//     const res = await axios.get('https://65a8c529219bfa3718678849.mockapi.io/auth');
+
+//     // if (res.data[0].auth === 1) {
+//     //   setErr('no')
+//     //   navigate('main/map', { replace: 'true' })
+//     // }
+//     // else if (res.data[0].auth === 0) {
+//     //   setErr('errData')
+//     // }
+
+//     console.log(res.data[0]);
+//     return res.data[0];
+
+//   };
+
+//   authorization()
+// }
+
+
+
+
+
+
+// if (res.data[0].auth === 1) {
+  //   setErr('no')
+  //   navigate('main/map', { replace: 'true' })
+  // }
+  // else if (res.data[0].auth === 0) {
+  //   setErr('errData')
+  // }
+
+
+
+---------------------------------createAdmin.js---------------------------
+
+  // if (login === '' || oldPassword === '' || newPassword === '' || doubleNewPassword === '') {
+  //   setErr('noData')
+  // }
+  // else {
+  // await apiPost('/api/token/', {
+  //   "login": log,
+  //   "password": pass,
+  //   "first_name": "admin",
+  //   "second_name": "admin"
+  // }
+  // ).then(res => {
+  //   // if (res.auth === 1) {
+  //   //   setErr('no')
+  //   navigate('main', { replace: 'true' })
+  //   // }
+  //   // else if (res.auth === 0) {
+  //   //   setErr('errData')
+  //   // }
+  // }
+  // ).catch(res => setErr('errSys'));
+
+
+  ---------------------------------createUser.js---------------------------
+
+    // if (secondName === '' || firstName === '' || letter === '' || carNumbers.length === 1) {
+  //   setErr('noData')
+  // }
+  // else {
+  // await apiPost('/api/token/', {
+  //   "login": log,
+  //   "password": pass,
+  //   "first_name": "admin",
+  //   "second_name": "admin"
+  // }
+  // ).then(res => {
+  //   // if (res.auth === 1) {
+  //   //   setErr('no')
+  //   navigate('main', { replace: 'true' })
+  //   // }
+  //   // else if (res.auth === 0) {
+  //   //   setErr('errData')
+  //   // }
+  // }
+  // ).catch(res => setErr('errSys'));
+
+
+
+  ---------------------------------MapPage.jsx---------------------------
+
+  // import FormBooking from '../Forms/FormBooking';
+// import FormNoBooking from '../Forms/FormNoBooking';
+// import { useSelector } from "react-redux";
+// import { useEffect, useState } from 'react';
+
+
+
+
+{/* <FormBooking />
+      <FormNoBooking /> */}
+
+
+
+---------------------------------Table.jsx---------------------------
+
+// if (item.active === 'active')
+                //   return <tr key={item.id}>
+                //     <td >{item.id}</td>
+                //     <td >{item.name}</td>
+                //     <td >{item.carNumber}</td>
+                //     <td >{item.time}</td>
+                //     <td ><Tooltip data='Место 8 на парковке занято a123az, а в приложении свободно' /></td>
+                //   </tr>
+                // else {
+                //   return <tr key={item.id} >
+                //     <td >{item.id}</td>
+                //     <td >{item.name}</td>
+                //     <td ></td>
+                //     <td ></td>
+                //     <td ></td>
+                //   </tr>
+                // }
+
+---------------------------------MapSection.jsx---------------------------
+
+// if (restarting === true) { // перезагрузка страницы
+  //   dispatch(setNeed(false))
+  //   fetchData()
+  // }
+
+
+
+
+{/* {
+        placesList.length === 0 ?
+          <section className={styleMainSection.maps}>
+            <p className={styleMainSection.pData}>Загрузка данных</p>
+          </section>
+          :
+          <section className={styleMainSection.section}>
+            {/* <Map floor={floorNumber} />
+            <TablePlaces lots={placesList} /> 
+
+          </section>
+      } */}
