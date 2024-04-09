@@ -1,31 +1,24 @@
 import styleSelect from './CSS/Select.module.css'
 import toggleDown from '../images/toggleDown.svg'
 import toggleUp from '../images/toggleUp.svg'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-const Select = ({ options, onChange }) => {
+const Select = ({ options, onChange, activeFloor}) => {
   const [open, setOpen] = useState(false)
-  const [id, setId] = useState(0)
 
   const onClickHeader = () => {
     setOpen(prev => !prev)
   }
 
   const onClickOption = (e) => {
-    setId(e.target.id)
     setOpen(prev => !prev)
-    console.log(e.target.innerHTML)
     onChange(e.target.innerHTML) // Call onChange here
   }
-
-  useEffect(() => {
-    onChange(id) // Call onChange initially
-  }, [])
 
   return (
     <div className={styleSelect.select}>
       <div className={styleSelect.selectHeader} onClick={onClickHeader}>
-        <span className={styleSelect.selectCurrent}>{options[id]}</span>
+        <span className={styleSelect.selectCurrent}>{activeFloor}</span>
         <div className={styleSelect.selectIcon}><img src={open ? toggleUp : toggleDown} alt="" /></div>
       </div>
 

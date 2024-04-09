@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { apiGet } from '../../../server'
+//import { apiGet } from '../../../server'
 
 const fetchFloorsList = async () => {
 

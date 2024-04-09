@@ -1,7 +1,7 @@
 // import AnalyticsSection from '../AnalyticSections';
-import GraphMap from "../../entities/parking/ui/GraphMap";
-import GraphUser from "../../entities/users/ui/GraphUser";
-import NotificationChat from '../../widgets/chat-noti/NotificationChat'
+// import GraphMap from "../../entities/parking/ui/GraphMap";
+// import GraphUser from "../../entities/users/ui/GraphUser";
+// import NotificationChat from '../../widgets/chat-noti/NotificationChat'
 
 import styleAP from './AnalyticsPage.module.css'
 

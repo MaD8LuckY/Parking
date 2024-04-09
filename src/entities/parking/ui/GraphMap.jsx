@@ -1,4 +1,4 @@
-import Select from '../../../shared/ui/Select'
+//import Select from '../../../shared/ui/Select'
 import styleGraph from './GraphMap.module.css'
 
 const mapData = [

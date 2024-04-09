@@ -44,6 +44,8 @@ const MapSection = () => {
   useEffect(() => { // запуск при загрузке страницы
     dispatch(setPlaces([]))
     fetchData()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeFloor])
 
 
@@ -56,7 +58,7 @@ const MapSection = () => {
 
   return (
     <section>
-      <Select options={floors} onChange={onChangeSelect} />
+      <Select options={floors} activeFloor={activeFloor} onChange={onChangeSelect} />
       {
         places.length === 0 && typeof activeFloor === 'string' ?
           <p>Загрузка данных</p>
