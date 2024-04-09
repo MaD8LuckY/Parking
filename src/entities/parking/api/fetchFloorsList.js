@@ -4,7 +4,7 @@ import { apiGet } from '../../../server'
 
 const fetchFloorsList = async () => {
 
-  const resp = await apiGet('/api/get_lots')
+  // const resp = await apiGet('/api/get_lots')
 
   const responce = await axios.get('https://65a8c529219bfa3718678849.mockapi.io/auth')
 

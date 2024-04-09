@@ -27,7 +27,7 @@ const MapSection = () => {
 
     if (floors.length === 0) {
       const listFloors = await fetchFloorsList()
-      //console.log(listFloors)
+
       dispatch(setFloors(listFloors))
       dispatch(setActiveFloor(listFloors[0]))
     }
