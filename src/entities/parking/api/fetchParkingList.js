@@ -1,14 +1,17 @@
-import { apiGet } from '../../../shared/server'
+import axios from "axios";
 
+const fetchParkingList = async (floorNumber) => {
 
-const fetchParkingList = (list, floorNumber) => {
+  const responce = await axios.get('https://65a8c529219bfa3718678849.mockapi.io/auth')
+
+  const res = responce.data[3];
   
-  let redPlaces = list.active_lots.filter((item) =>
-    (item.floor === floorNumber)
+  let redPlaces = res.active_lots.filter((item) =>
+    (item.floor === Number(floorNumber.split(' ')[1]))
   )
 
-  let greenPlaces = list.inactive_lots.filter(item =>
-    (item.floor === floorNumber)
+  let greenPlaces = res.inactive_lots.filter(item =>
+    (item.floor === Number(floorNumber.split(' ')[1]))
   )
 
   const listOfPlacesSort = [...new Set([...greenPlaces, ...redPlaces])].sort(function (a, b) { // сортировка
@@ -39,7 +42,6 @@ const fetchParkingList = (list, floorNumber) => {
       }
     }
   })
-
   return listOfPlaces;
 };
 

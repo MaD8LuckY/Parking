@@ -1,11 +1,9 @@
 const AnaliticSection = () => {
 
   return (
-    <main >
-      <section >
-      <p>Analitic</p>
-      </section>
-    </main>
+    <section>
+      
+    </section>
   )
 
 }

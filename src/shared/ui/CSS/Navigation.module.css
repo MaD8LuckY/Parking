@@ -34,3 +34,9 @@
   user-select: none;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1350px) {
+  .nav {
+    display: none;;
+  }
+}

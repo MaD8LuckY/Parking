@@ -2,7 +2,7 @@
   width: 630px;
 }
 
-.p {
+.h2 {
   width: 100%;
 
   font-weight: 500;
@@ -15,7 +15,7 @@
 }
 
 .divTable {
-  height: 450px;
+  max-height: 450px;
   overflow-y: auto;
   position: relative;
   z-index: 0;
@@ -49,4 +49,65 @@
 
 .table td:nth-child(2){
   width: 190px;
+}
+
+@media screen and (max-width: 1350px) {
+  .div {
+    width: max(328px, 40vw);
+  }
+  
+  .h2 {
+    font-size: 3vw;
+  }
+  
+  .table {
+    font-size: 1.5vw;
+  }
+  
+  .table tr {
+    margin-bottom: min(30px, 2vw);
+  }
+   
+  .table td {
+    width: 5vw;
+    height: 30px;
+  }
+  
+  .table td:nth-child(2){
+    width: 12vw;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .div {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .h2 {
+    display: none;
+  }
+  
+  .table {
+    font-size: 16px;
+  }
+  
+  .table tr {
+    margin-bottom: 10px;
+  }
+   
+  .table td {
+    width: 48px;
+    height: 20px;
+  }
+  
+  .table td:nth-child(2){
+    width: 160px;
+  }
+
+  .table td:nth-last-child(1),
+  .table td:nth-child(1) {
+    width: 20px;
+  }
 }

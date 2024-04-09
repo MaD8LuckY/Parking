@@ -36,3 +36,21 @@
   width: 100%;
   text-align: start;
 }
+
+@media screen and (max-width: 1350px) {
+  .form {
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .form {
+    width: 100%;
+
+    padding: 8vw;
+  }
+
+  .form h2 {
+    font-size: max(20px, 3.5vw);
+  }
+}

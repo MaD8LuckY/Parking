@@ -4,12 +4,14 @@ import styleStart from './Start.module.css'
 
 
 
-const StartPage = () => {  
-  return(
+const StartPage = () => {
+  return (
     <div className={styleStart.start}>
       <img className={styleStart.logo} src={logo} alt=""></img>
-      <h1 className={styleStart.title}>Добро пожаловать</h1>
-      <FormAuth className={styleStart.form}/>
+      <div className={styleStart.container}> 
+        <h1 className={styleStart.title}>Добро пожаловать</h1>
+        <FormAuth />
+      </div>
     </div>
   )
 }

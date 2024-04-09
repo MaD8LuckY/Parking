@@ -15,6 +15,8 @@ const FormUpdateAdmin = () => {
   const [oldPassword, setOldPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [doubleNewPassword, setDoubleNewPassword] = useState('')
+  const [letter, setLetter] = useState('')
+  const [carNumber, setCarNumber] = useState('')
 
   const onChangeInput = (e) => {
     switch (e.target.id) {
@@ -32,6 +34,14 @@ const FormUpdateAdmin = () => {
         break
       case 'double_new_password':
         setDoubleNewPassword(e.target.value)
+        setErr('no')
+        break
+      case 'letter':
+        setLetter(e.target.value)
+        setErr('no')
+        break
+      case 'car_number':
+        setCarNumber(e.target.value)
         setErr('no')
         break
       default:
@@ -59,11 +69,13 @@ const FormUpdateAdmin = () => {
 
   return (
     <form onSubmit={entrance} className={styleForm.form}>
-      <h2>Введите данные</h2>
+      <h2>Введите данные для редактирования</h2>
       <Input id='login' onChange={onChangeInput} type='text' value={login} name="Логин" />
       <Input id='old_password' onChange={onChangeInput} type='password' value={oldPassword} name="Старый пароль" />
       <Input id='new_password' onChange={onChangeInput} type='password' value={newPassword} name="Введите новый пароль" />
       <Input id='double_new_password' onChange={onChangeInput} type='password' value={doubleNewPassword} name="Повторите пароль" />
+      <Input id='car_number' onChange={onChangeInput} type='text' value={carNumber} name="Номер автомобиля" />
+      <Input id='letter' onChange={onChangeInput} type='email' value={letter} name="Почта" />
       {err === 'no' ?
         <></>
         :

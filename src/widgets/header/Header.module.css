@@ -21,3 +21,17 @@
 .logo {
   width: 190px;
 }
+
+@media screen and (max-width: 1350px) {
+  .header {
+    height: 60px;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .logo {
+    width: max(104px, 10vw);
+  }
+}

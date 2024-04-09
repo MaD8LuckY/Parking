@@ -14,7 +14,7 @@ const FormCreateProfile = () => {
   const [secondName, setSecondName] = useState('')
   const [firstName, setFirstName] = useState('')
   const [letter, setLetter] = useState('')
-  const [carNumbers, setCarNumbers] = useState([''])
+  const [carNumber, setCarNumber] = useState('')
 
   const onChangeInput = (e) => {
     switch (e.target.id.split(' ')[0]) {
@@ -31,20 +31,7 @@ const FormCreateProfile = () => {
         setErr('no')
         break
       case 'car_number':
-        if (Number(e.target.id.split(' ')[1]) === carNumbers.length) {
-          setCarNumbers([...carNumbers.filter((item) => item !== ''), e.target.value, '']);
-        }
-        else {
-          const newValue = carNumbers.map((item, i) => {
-            if(i === Number(e.target.id.split(' ')[1]-1)){
-              return e.target.value
-            }
-            else {
-              return item
-            }
-          })
-          setCarNumbers([...newValue.filter((item) => item !== ''), '']);
-        }
+        setCarNumber(e.target.value)
         setErr('no')
         break
       default:
@@ -70,18 +57,7 @@ const FormCreateProfile = () => {
       <h2>Введите данные пользователя</h2>
       <Input id='second_name' onChange={onChangeInput} type='text' value={secondName} name="Фамилия" />
       <Input id='first_name' onChange={onChangeInput} type='text' value={firstName} name="Имя" />
-      <h2>Номера автомобилей</h2>
-      {
-        carNumbers.map((item, count) => {
-          count++
-          if (item.length === 0) {
-            return <Input id={`car_number ${count}`} key={count} number='+' value={item} name='Номер автомобиля' onChange={onChangeInput} />
-          }
-          else {
-            return <Input id={`car_number ${count}`} key={count} number={count} value={item} name='Номер автомобиля' onChange={onChangeInput} />
-          }
-        })
-      }
+      <Input id='car_number' onChange={onChangeInput} type='text' value={carNumber} name="Номер автомобиля" />
       <Input id='letter' onChange={onChangeInput} type='email' value={letter} name="Почта" />
       {err === 'no' ?
         <></>

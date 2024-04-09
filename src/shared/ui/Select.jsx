@@ -14,6 +14,7 @@ const Select = ({ options, onChange }) => {
   const onClickOption = (e) => {
     setId(e.target.id)
     setOpen(prev => !prev)
+    console.log(e.target.innerHTML)
     onChange(e.target.innerHTML) // Call onChange here
   }
 

@@ -6,3 +6,12 @@
 
   position: relative;
 }
+
+@media screen and (max-width: 1350px) {
+  .main {
+    width: 90%;
+    padding: 30px 0;
+
+    min-height: calc(100vh - 60px);
+  }
+}

@@ -1,0 +1,57 @@
+.background {
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0,0,0,0.5);
+}
+
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 630px;
+  padding: 50px;
+  border-radius: 20px;
+
+  text-align: center;
+
+  background-color: #fff;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 60px;
+
+  margin-bottom: 20px;
+}
+
+.formAction p {
+  padding-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 700px) {  
+  .form {  
+    width: max(328px, 80%);
+    padding: 28px;
+    border-radius: 10px;
+  }
+  
+  .title {
+    font-size: max(30px, 6vw);
+    margin-bottom: 20px;
+
+    line-height: 40px;
+  }
+}

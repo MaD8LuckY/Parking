@@ -46,6 +46,7 @@
 
   position: absolute;
   top:60px;
+  z-index: 1;
 
   user-select: none;
 }
@@ -65,4 +66,37 @@
 }
 
 
+@media screen and (max-width: 700px) {
+  .select {
+    width: 328px;
+  
+    font-size: 16px;
+  }
 
+  .selectHeader {  
+    padding: 10px 0;
+  }
+  
+  .selectCurrent {
+    width: 224px;
+    height: 20px;
+  }
+  
+  .selectIcon {
+    width: 76px;
+  }
+
+  .selectIcon > img {
+    width: 22px;
+    height: 12px;
+  }
+
+  .selectBody {
+    top: 40px;
+  }
+  
+  .selectItem {
+    padding: 10px 0; 
+    height: 40px; 
+  }
+}

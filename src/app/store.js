@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import bookingSlice from "../chlamochranilishe/booking/bookingSlice";
-import noBookingSlice from "../chlamochranilishe/noBooking/noBookingSlice";
+import reservationSlice from "../widgets/form-reser/reservation/reservationSlice";
+import cancelReservationSlice from "../widgets/form-cancel-reser/cancelReservation/cancelReservationSlice";
 import IDSlice from "../chlamochranilishe/ID/IDSlice";
 import restartingSlice from "../chlamochranilishe/restarting/restartingSlice";
 import placesListSlice from "../entities/parking/model/placesListSlice";
@@ -9,8 +9,8 @@ import floorsListSlice from '../entities/parking/model/floorsListSlice'
 
 export const store = configureStore({
     reducer: {
-        booking : bookingSlice,
-        noBooking : noBookingSlice,
+        reservation : reservationSlice,
+        cancelReservation : cancelReservationSlice,
         id: IDSlice,
         restart: restartingSlice,
         placesList: placesListSlice,

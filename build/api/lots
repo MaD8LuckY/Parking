@@ -1,0 +1,50 @@
+{
+    "active_lots": [
+        {
+            "id": 6,
+            "status": 1,
+            "firstName": "Артем",
+            "secondName": "Ивановович",
+            "startTime": "2023-12-23 11:11:01.376072",
+            "carNumber": "А123ВС70"
+        }
+    ],
+    "inactive_lots": [
+        {
+            "id": 5,
+            "status": 0
+        },
+        {
+            "id": 7,
+            "status": 0
+        },
+        {
+            "id": 8,
+            "status": 0
+        },
+        {
+            "id": 9,
+            "status": 0
+        },
+        {
+            "id": 10,
+            "status": 0
+        },
+        {
+            "id": 19,
+            "status": 0
+        },
+        {
+            "id": 20,
+            "status": 0
+        },
+        {
+            "id": 21,
+            "status": 0
+        },
+        {
+            "id": 23,
+            "status": 0
+        }
+    ]
+}
