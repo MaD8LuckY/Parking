@@ -1,0 +1,63 @@
+src/
+  - app/
+    
+  - pages/
+    - auth/
+    - map/
+    - analytics/
+    - create-user/
+    - create-admin/
+    - update-admin/
+  
+  - widgets/
+    - form-auth/
+    - form-reser/
+    - form-cancel-reser/
+    - header/
+    - chat-noti/
+    - section-map/
+    - section-analytics/
+    - form-create-user/
+    - form-create-admin/
+    - form-update-admin/
+
+  - features/
+    - auth/
+    - select-floor/
+    - make-reservation/
+    - cancel-reservation/
+    - select-time-period/
+    - create-user/
+    - create-admin/
+    - update-admin/
+
+  - entities/
+    - parking/
+      - ui/
+      - model/
+      - api/
+
+    - users/
+      - ui/
+      - api/
+      - model/
+
+    - admins/
+      - model/
+      - api/
+
+    - notifications/
+      - ui/
+      - model/
+      - api/ 
+
+    - reports/
+      - ui/
+      - model/
+      - api/
+
+  - shared/
+    - ui/
+    - server.js (тело api)
+    - images/
+    - constants/
