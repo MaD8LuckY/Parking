@@ -6,6 +6,15 @@ const getHeaders = () => {
   return header;
 };
 
+const getHeadersToken = (token) => {
+  let header = {
+    'Content-Type': 'application/json; ',
+    'Authorization': 'Bearer ' + token 
+  };
+
+  return header;
+};
+
 export const apiPost = async (url, params = {}) => {
   const headers = getHeaders();
   console.log(
@@ -29,23 +38,25 @@ export const apiPost = async (url, params = {}) => {
   return (dataJson || false);
 };
 
-export const apiGet = async (url, params = {}) => {
-  const headers = await getHeaders();
+export const apiPostToken = async (url, params = {}, token) => {
+  const headers = getHeadersToken(token);
   console.log(
-    'GET Url: ',
+    'POST Url: ',
     `${url}`,
     'Тело запроса: ',
-    params,
+    JSON.stringify(params),
     'headers: ',
     headers,
   );
 
-  const data = await fetch(`${url}`, {
-    method: "GET",
+  let data = await fetch(`${url}`, {
+    method: 'POST',
+    credentials: 'omit',
     headers: headers,
-    mode: "cors",
-    cache: "default",
+    body: JSON.stringify(params),
   })
+
   let dataJson = await data.json();
+
   return (dataJson || false);
 };

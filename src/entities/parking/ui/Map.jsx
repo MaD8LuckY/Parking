@@ -36,6 +36,10 @@ const Map = () => {
             <svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810.53 554.59">
               <defs>
                 <style>{`
+                g {
+                  cursor: pointer;
+                }
+                
                 .cls-1, .cls-2, .cls-3, .cls-4 {
                   fill: #ffffff;
                   stroke: #1d1d1b;
@@ -62,6 +66,8 @@ const Map = () => {
                   fill: #1d1d1b; 
                   font-family: TinkoffSans-Bold, Tinkoff Sans; 
                   font-weight: 700;
+
+                  user-select: none;
                 }`
                 }
                 </style>
@@ -133,6 +139,10 @@ const Map = () => {
             <svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810.53 554.59">
               <defs>
                 <style>{`
+                g {
+                  cursor: pointer;
+                }
+
                 .cls-1, .cls-2, .cls-3, .cls-4 {
                   fill: #ffffff;
                   stroke: #1d1d1b;
@@ -153,6 +163,7 @@ const Map = () => {
                   fill: #1d1d1b;
                   font-family: TinkoffSans-Bold, Tinkoff Sans;
                   font-weight: 700;
+                  user-select: none;
                 }
     
                 .cls-6 {

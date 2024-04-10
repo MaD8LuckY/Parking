@@ -3,6 +3,8 @@ import Button from "../../shared/ui/Button";
 import styleForm from './FormAuth.module.css';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { setToken } from "../../entities/admins/model/adminSlice";
+import { useDispatch } from "react-redux";
 
 import authorization from '../../features/auth/auth'
 import { errorTypes } from '../../shared/constants/errorTypes';
@@ -13,6 +15,7 @@ const FormAuth = () => {
   const navigate = useNavigate()
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
+  const dispatch = useDispatch()
 
   const onChangeInput = (e) => {
     switch (e.target.id) {
@@ -27,21 +30,29 @@ const FormAuth = () => {
     }
   }
 
-  // const onChangeErr = () => {
-  //   setErr
-  // }
-
   const auth = async (e) => {
     e.preventDefault();
 
-    let res = await authorization();
+    if(login !== '' && password !== ''){
 
-    if (res.auth === 1) {
-      setErr('no')
-      navigate('main/map', { replace: 'true' })
+      if(login.includes(".") === true && login.includes("@") === true){
+        setErr('no')
+      let res = await authorization(login, password);
+
+        if(res === 401) {
+          setErr('errAuth')
+        }
+        else{
+          dispatch(setToken(res.access_token))
+          navigate('main/map', { replace: 'true' })
+        }
+      }
+      else{
+        setErr('errLogin')
+      }
     }
-    else if (res.auth === 0) {
-      setErr('errAuth')
+    else {
+      setErr('errNoData')
     }
   }
 

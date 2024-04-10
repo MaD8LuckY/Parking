@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    floors: [],
-    activeFloor: ''
+    floors: ['Этаж 1', 'Этаж 2'],
+    activeFloor: 'Этаж 1'
 }
 
 export const floorsListSlice = createSlice({

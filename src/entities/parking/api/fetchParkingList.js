@@ -1,27 +1,21 @@
-import axios from "axios";
+// import axios from "axios";
 
-const fetchParkingList = async (floorNumber) => {
+import { apiPostToken } from "../../../server";
 
-  const responce = await axios.get('https://65a8c529219bfa3718678849.mockapi.io/auth')
+const fetchParkingList = async (floorNumber, token) => {
 
-  const res = responce.data[3];
-  
-  let redPlaces = res.active_lots.filter((item) =>
-    (item.floor === Number(floorNumber.split(' ')[1]))
-  )
+  // const responce = await axios.get('https://65a8c529219bfa3718678849.mockapi.io/auth')
 
-  let greenPlaces = res.inactive_lots.filter(item =>
-    (item.floor === Number(floorNumber.split(' ')[1]))
-  )
+  // const res = responce.data[3];
 
-  const listOfPlacesSort = [...new Set([...greenPlaces, ...redPlaces])].sort(function (a, b) { // сортировка
-    return a.id - b.id;
-  });
+  const res = await apiPostToken('/api/get_lots/', {
+    "floor": Number(floorNumber.split(' ')[1])
+  }, token)
 
-  const listOfPlaces = listOfPlacesSort.map(item => {
+  const listOfPlaces = [...new Set([...res.active_lots, ...res.inactive_lots])].map(item => {
     if (item.status === 0) {
       return {
-        'id': item.id,
+        'id': item.parking_lot_number,
         'active': 'inactive',
         'floor': item.floor,
         'name': `Cвободно`,
@@ -32,7 +26,7 @@ const fetchParkingList = async (floorNumber) => {
     }
     else {
       return {
-        'id': item.id,
+        'id': item.parking_lot_number,
         'active': 'active',
         'floor': item.floor,
         'name': `${item.secondName} ${item.firstName}`,
