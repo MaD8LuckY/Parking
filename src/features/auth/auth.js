@@ -14,9 +14,6 @@ const authorization = async (login, password) => {
   })
 
   return res;
-
-
-
 };
 
 

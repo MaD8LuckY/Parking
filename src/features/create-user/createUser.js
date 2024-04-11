@@ -1,11 +1,17 @@
-import axios from "axios";
+//import axios from "axios";
 
-const createUser = async () => {
+import { apiPostToken } from "../../server";
 
-  const res = await axios.get('https://65a8c529219bfa3718678849.mockapi.io/auth');
-  return res.data[3];
+const createUser = async (firstName, secondName, letter, token) => {
+
+  const res = await apiPostToken('/api/create_user/', {
+    "login": letter,
+    "first_name": firstName,
+    "second_name": secondName
+  }, token)
+
+  return res;
   
-//} 
 };
 
 export default createUser;

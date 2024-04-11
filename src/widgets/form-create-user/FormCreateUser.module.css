@@ -53,4 +53,10 @@
   .form h2 {
     font-size: max(20px, 3.5vw);
   }
+
+  .err,
+  .suc {
+    font-size: max(10px, 2vw);
+    line-height: max(10px, 2vw);
+  }
 }

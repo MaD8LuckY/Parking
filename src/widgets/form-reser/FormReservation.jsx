@@ -3,17 +3,23 @@ import Button from "../../shared/ui/Button";
 import { setReservationVisibility } from "./reservation/reservationSlice";
 import { useDispatch, useSelector } from "react-redux";
 import styleFormBooking from './FormReservation.module.css'
-//import { apiPost } from "../../service/server";
-import { setNeed } from "../../chlamochranilishe/restarting/restartingSlice";
+import { setNeed } from "../../entities/parking/model/restartingSlice";
 import { useState } from "react";
 
-import axios from "axios";
+import { errorTypes } from '../../shared/constants/errorTypes';
+
+import reservation from "../../features/reservation/reservation";
 
 const FormReservation = () => { // placeholder type
   const display = useSelector((store) => store.reservation.visibility)
+  const id = useSelector((store) => store.id.id)
+  const token = useSelector((store) => store.admin.token)
+
   const dispatch = useDispatch()
+
   const [err, setErr] = useState('no')
   const [carNumber, setCarNumber] = useState('')
+
 
   const bookingClose = () => { // закрытие формы
     dispatch(setReservationVisibility(false))
@@ -28,32 +34,17 @@ const FormReservation = () => { // placeholder type
     e.preventDefault()
 
     const booking = async () => {
-      if (carNumber === '') {
-        setErr('noData')
-      }
-      else {
-        // await apiPost('/api/admin_book/', {
-        //   "parkingLot": idPlace,
-        //   "carNumber": carNumberVal,
-        // })
-        //   .then(res => {
-        //     if (res.message === "Booking created successfully") {
-        //       setErr('no')
-        //       dispatch(setBookingVisibility(false))
-        //       dispatch(setNeed(true))
-        //     } else {
-        //       setErr('errData')
-        //     }
-        //   })
-        //   .catch(res => setErr('errSys'));
-        const res = await axios.get('https://65a8c529219bfa3718678849.mockapi.io/auth');
-        //console.log(res.data[1]);
-        if (res.data[1].message === "Booking created successfully") {
-          setErr('no')
-          setCarNumber('')
-          dispatch(setReservationVisibility(false))
-          dispatch(setNeed(true))
-        }
+      // if (carNumber === '') {
+      //   setErr('errNoData')
+      // }
+
+      const res = await reservation(id, token);
+      console.log(res);
+      if (res.message === "Booking created successfully") {
+        setErr('no')
+        setCarNumber('')
+        dispatch(setReservationVisibility(false))
+        dispatch(setNeed(true))
       }
     };
 
@@ -69,13 +60,10 @@ const FormReservation = () => { // placeholder type
             <h2 className={styleFormBooking.title}>Занять место</h2>
             <form onSubmit={entrance}>
               <Input id='carNumber' onChange={onChangeInput} type='text' value={carNumber} name="Номер автомобиля" />
-              {err === 'errSys' ?
-                <p style={{ color: '#f00', marginBottom: '5px' }}>Ошибка системы</p>
+              {err === 'no' ?
+                <></>
                 :
-                err === 'no' ?
-                  <></>
-                  :
-                  <p style={{ color: '#f00', marginBottom: '5px' }}>Введите данные</p>
+                <p className={styleFormBooking.err}>{errorTypes[err]}</p>
               }
               <div className={styleFormBooking.buttons}>
                 <Button text='Отмена' onClick={bookingClose} />

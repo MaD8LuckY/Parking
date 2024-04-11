@@ -42,6 +42,9 @@ const FormAuth = () => {
         if(res === 401) {
           setErr('errAuth')
         }
+        // else if(res === ""){
+        //   setErr('errSys')
+        // }
         else{
           dispatch(setToken(res.access_token))
           navigate('main/map', { replace: 'true' })

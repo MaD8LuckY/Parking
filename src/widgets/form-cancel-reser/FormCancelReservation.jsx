@@ -2,13 +2,15 @@ import Button from "../../shared/ui/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { setCancelReservationVisibility } from "./cancelReservation/cancelReservationSlice";
 import styleFormNoBooking from './FormCancelReservation.module.css'
-//import { setNeed } from "../../features/restarting/restartingSlice";
-//import { apiPost } from "../../service/server";
+import { setNeed } from "../../entities/parking/model/restartingSlice";
 
-import axios from "axios";
+import cancelReservation from "../../features/cancel-reservation/cancelReservation";
 
 const FormCancelReservation = () => {
   const display = useSelector((store) => store.cancelReservation.visibility)
+  const id = useSelector((store) => store.id.id)
+  const token = useSelector((store) => store.admin.token)
+
   const dispatch = useDispatch()
 
 
@@ -28,12 +30,19 @@ const FormCancelReservation = () => {
       //   }
       // }
       // ).catch(err => console.log('createBooking err', err));
-      const res = await axios.get('https://65a8c529219bfa3718678849.mockapi.io/auth');
+
+      const res = await cancelReservation(id, token);
+      console.log(res);
+      if (res.message === "Booking ended successfully") {
+        dispatch(setCancelReservationVisibility(false))
+        dispatch(setNeed(true))
+      }
+      // const res = await axios.get('https://65a8c529219bfa3718678849.mockapi.io/auth');
         //console.log(res.data[1]);
-        if (res.data[2].message === "Booking ended successfully") {
-          dispatch(setCancelReservationVisibility(false))
-          //dispatch(setNeed(true))
-        }
+        // if (res.data[2].message === "Booking ended successfully") {
+        //   dispatch(setCancelReservationVisibility(false))
+        //   //dispatch(setNeed(true))
+        // }
     };
 
     noBooking()

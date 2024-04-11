@@ -4,10 +4,6 @@ import { apiPostToken } from "../../../server";
 
 const fetchParkingList = async (floorNumber, token) => {
 
-  // const responce = await axios.get('https://65a8c529219bfa3718678849.mockapi.io/auth')
-
-  // const res = responce.data[3];
-
   const res = await apiPostToken('/api/get_lots/', {
     "floor": Number(floorNumber.split(' ')[1])
   }, token)
@@ -31,12 +27,12 @@ const fetchParkingList = async (floorNumber, token) => {
         'floor': item.floor,
         'name': `${item.secondName} ${item.firstName}`,
         'carNumber': item.carNumber,
-        'time': item.startTime.split(' ')[1].substr(0, 5),
+        'time': item.started.split(' ')[1].substr(0, 5),
         'notification': ''
       }
     }
   })
-  return listOfPlaces;
+  return listOfPlaces.sort((a, b) => a.id > b.id ? 1 : -1);;
 };
 
 export default fetchParkingList;

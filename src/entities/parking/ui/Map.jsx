@@ -3,6 +3,7 @@ import styleMap from './Map.module.css'
 
 import { setCancelReservationVisibility } from '../../../widgets/form-cancel-reser/cancelReservation/cancelReservationSlice';
 import { setReservationVisibility } from '../../../widgets/form-reser/reservation/reservationSlice';
+import { setID } from '../model/IDSlice';
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -12,9 +13,11 @@ const Map = () => {
   const openForm = (number) => {
     if (places.filter(item => item.id === number)[0].active === 'inactive') {
       dispatch(setReservationVisibility(true))
+      dispatch(setID(number))
     }
     else {
       dispatch(setCancelReservationVisibility(true))
+      dispatch(setID(number))
     }
   }
 

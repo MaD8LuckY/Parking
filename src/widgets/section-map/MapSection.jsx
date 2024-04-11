@@ -12,6 +12,7 @@ import fetchParkingList from '../../entities/parking/api/fetchParkingList';
 
 import { setActiveFloor } from '../../entities/parking/model/floorsListSlice'
 import { setPlaces } from '../../entities/parking/model/placesListSlice'
+import { setNeed } from '../../entities/parking/model/restartingSlice';
 
 
 const MapSection = () => {
@@ -20,6 +21,7 @@ const MapSection = () => {
   const activeFloor = useSelector((store) => store.floorsList.activeFloor)
   const places = useSelector((store) => store.placesList.places)
   const token = useSelector((store) => store.admin.token)
+  const reset = useSelector((store) => store.restart.isNeed)
   // const restarting = useSelector((state) => state.restart.isNeed)
   const dispatch = useDispatch()
 
@@ -46,6 +48,12 @@ const MapSection = () => {
       dispatch(setPlaces([]))
     }
     dispatch(setActiveFloor(value))
+  }
+
+  if(reset === true){
+    dispatch(setNeed(false))
+    dispatch(setPlaces([]))
+    fetchData()
   }
 
   return (
