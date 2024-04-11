@@ -10,5 +10,5 @@ base = "/"
 
 [[redirects]]
   from = '/api/*'
-  to = '/.netlify/functions/:splat'
+  to = 'http://80.78.243.244:8080'
   status = 200
