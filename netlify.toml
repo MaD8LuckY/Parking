@@ -9,6 +9,6 @@ base = "/"
   status = 200
 
 [[redirects]]
-  from = 'https://tinparking.netlify.app/api/*'
-  to = 'http://80.78.243.244:8080/api'
+  from = '/api/*'
+  to = 'http://80.78.243.244:8080/:splat'
   status = 200
