@@ -10,5 +10,5 @@ base = "/"
 
 [[redirects]]
   from = '/api/*'
-  to = 'http://80.78.243.244:8080/:splat'
+  to = 'http://80.78.243.244:8080/api/:splat'
   status = 200
