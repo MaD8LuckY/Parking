@@ -11,13 +11,13 @@ const ParkCong = () => {
   // Slice наверно делать не надо все равно только он им пользуется
   // Обойтись только useState
 
-  const fetchData = () => {
-    console.log(period)
-    // api-запрос на данные
-  }
+  // const fetchData = () => {
+  //   console.log(period)
+  //   // api-запрос на данные
+  // }
 
   useEffect(() => {
-    fetchData()
+    //fetchData()
   }, [period])
 
   const onChangeSelect = (value) => {

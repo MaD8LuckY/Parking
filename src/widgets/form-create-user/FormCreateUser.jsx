@@ -51,7 +51,7 @@ const FormCreateProfile = () => {
         let res = await createUser(firstName, secondName, letter, token);
 
         if (res.login) {
-          let resCar = await createUser(letter, carNumber, token);
+          // let resCar = await createUser(letter, carNumber, token);
           setErr('sucUserCreated')
         }
         else if (res === 400) {
