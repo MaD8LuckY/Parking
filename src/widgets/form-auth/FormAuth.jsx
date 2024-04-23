@@ -6,7 +6,7 @@ import { useState } from "react";
 import { setToken } from "../../entities/admins/model/adminSlice";
 import { useDispatch } from "react-redux";
 
-import authorization from '../../features/auth/auth'
+import authorization from '../../entities/admins/api/auth'
 import { errorTypes } from '../../shared/constants/errorTypes';
 
 const FormAuth = () => {
@@ -39,12 +39,14 @@ const FormAuth = () => {
         setErr('no')
       let res = await authorization(login, password);
 
+      console.log(res)
+
         if(res === 401) {
           setErr('errAuth')
         }
-        // else if(res === ""){
-        //   setErr('errSys')
-        // }
+        else if(res === 504){
+          setErr('errSys')
+        }
         else{
           dispatch(setToken(res.access_token))
           navigate('main/map', { replace: 'true' })

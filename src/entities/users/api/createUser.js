@@ -1,6 +1,6 @@
 //import axios from "axios";
 
-import { apiPostToken } from "../../server";
+import { apiPostToken } from "../../../server";
 
 const createUser = async (firstName, secondName, letter, token) => {
 

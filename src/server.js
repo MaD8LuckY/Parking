@@ -9,7 +9,7 @@ const getHeaders = () => {
 const getHeadersToken = (token) => {
   let header = {
     'Content-Type': 'application/json; ',
-    'Authorization': 'Bearer ' + token 
+    'Authorization': 'Bearer ' + token
   };
 
   return header;
@@ -33,9 +33,10 @@ export const apiPost = async (url, params = {}) => {
     body: JSON.stringify(params),
   })
 
+
   let dataJson = await data.json();
 
-  return (dataJson || false);
+  return (dataJson || 'false');
 };
 
 export const apiPostToken = async (url, params = {}, token) => {

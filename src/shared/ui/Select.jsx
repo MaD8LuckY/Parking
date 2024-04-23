@@ -3,7 +3,7 @@ import toggleDown from '../images/toggleDown.svg'
 import toggleUp from '../images/toggleUp.svg'
 import { useState } from 'react'
 
-const Select = ({ options, onChange, activeFloor}) => {
+const Select = ({ options, onChange, active}) => {
   const [open, setOpen] = useState(false)
 
   const onClickHeader = () => {
@@ -18,7 +18,7 @@ const Select = ({ options, onChange, activeFloor}) => {
   return (
     <div className={styleSelect.select}>
       <div className={styleSelect.selectHeader} onClick={onClickHeader}>
-        <span className={styleSelect.selectCurrent}>{activeFloor}</span>
+        <span className={styleSelect.selectCurrent}>{active}</span>
         <div className={styleSelect.selectIcon}><img src={open ? toggleUp : toggleDown} alt="" /></div>
       </div>
 

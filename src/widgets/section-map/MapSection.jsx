@@ -50,7 +50,7 @@ const MapSection = () => {
     dispatch(setActiveFloor(value))
   }
 
-  if(reset === true){
+  if (reset === true) {
     dispatch(setNeed(false))
     dispatch(setPlaces([]))
     fetchData()
@@ -58,10 +58,13 @@ const MapSection = () => {
 
   return (
     <section>
-      <Select options={floors} activeFloor={activeFloor} onChange={onChangeSelect} />
+      <Select options={floors} active={activeFloor} onChange={onChangeSelect} />
       {
         places.length === 0 && typeof activeFloor === 'string' ?
-          <p>Загрузка данных</p>
+          <>
+            <p className={styleMapSection.load}>Загрузка данных</p>
+            <div className={styleMapSection.spinner}></div>
+          </>
           :
           <div className={styleMapSection.section}>
             <Map />

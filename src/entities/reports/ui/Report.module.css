@@ -1,0 +1,43 @@
+.card {
+  width: 100%;
+
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: space-between;
+
+  background-color: #ECF1F7;
+}
+
+.card>p {
+  font-size: 18px;
+}
+
+.link {
+  color: #336FEE;
+
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #3B71C4;
+}
+
+@media screen and (max-width: 1350px) {
+  .card {
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+  }
+
+  .card > p {
+    font-size: 16px;
+    word-break: break-all;
+  }
+
+  .text {
+    width: 60%;
+  }
+}

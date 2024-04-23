@@ -3,7 +3,48 @@
   width: 1290px;
   padding: 50px 0;
   margin: auto;
-  
 
+  display: flex;
+  justify-content: space-between;
+  
   position: relative;
 }
+
+.main > section {
+  width: 630px;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1350px) {
+  .main {
+    width: 90%;
+    padding: 30px 0;
+
+    min-height: calc(100vh - 60px);
+  }
+
+  .main > section {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .main {
+    width: 90%;
+    padding: 30px 0;
+
+    display: block;
+
+    min-height: calc(100vh - 60px);
+  }
+
+  .main > section {
+    width: 100%;
+  }
+}
+
+
+

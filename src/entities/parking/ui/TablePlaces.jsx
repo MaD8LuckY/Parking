@@ -12,11 +12,14 @@ const deleteKeys = (list) => {
   return arr;
 }
 
+const tdRow = [1, 2, 1, 1, 1]
+const tdRowSmall = [1, 6, 2, 2, 1]
+
 const TablePlaces = () => {
   const places = useSelector((store) => store.placesList.places)
 
   return (
-    <Table title='Список мест' items={deleteKeys(places)} />
+    <Table title='Список мест' items={deleteKeys(places)} tdRow={tdRow} tdRowSmall={tdRowSmall}/>
   )
 }
 

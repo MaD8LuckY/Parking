@@ -1,5 +1,5 @@
 .div {
-  width: 630px;
+  width: 100%;
 }
 
 .h2 {
@@ -14,41 +14,39 @@
   user-select: none;
 }
 
-.divTable {
+/* .divTable {
   max-height: 450px;
   overflow-y: auto;
   position: relative;
   z-index: 0;
-}
+} */
 
 .table {
   width: 100%;
 
-  border-collapse: separate;
-
   font-size: 22px;
   user-select: none;
-  
 }
 
-.table tr {
+.tr {
   display: flex;
-  justify-content: space-between;
+  
 
   margin-bottom: 20px;
 }
  
-.table td {
-  width: 80px;
-  height: 45px;
+.td {
+  line-height: 30px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-right: 30px;
 }
 
-.table td:nth-child(2){
-  width: 190px;
+.td:nth-last-child(1) {
+  margin-right: 0;
 }
 
 @media screen and (max-width: 1350px) {
@@ -64,18 +62,18 @@
     font-size: 1.5vw;
   }
   
-  .table tr {
+  .tr {
     margin-bottom: min(30px, 2vw);
   }
    
-  .table td {
+  /* .table td {
     width: 5vw;
     height: 30px;
   }
   
   .table td:nth-child(2){
     width: 12vw;
-  }
+  } */
 
 }
 
@@ -86,18 +84,22 @@
   }
   
   .h2 {
-    display: none;
+    font-size: 26px;
+    width: 100%;
+
+    margin-bottom: 20px;
   }
   
   .table {
     font-size: 16px;
   }
   
-  .table tr {
+  .tr {
+    justify-content: space-between;
     margin-bottom: 10px;
   }
    
-  .table td {
+  /* .table td {
     width: 48px;
     height: 20px;
   }
@@ -109,5 +111,15 @@
   .table td:nth-last-child(1),
   .table td:nth-child(1) {
     width: 20px;
+  } */
+
+  .td {
+    line-height: 1em;
+  
+    margin-right: 8px;
+  }
+  
+  .td:nth-last-child(1) {
+    margin-right: 0;
   }
 }

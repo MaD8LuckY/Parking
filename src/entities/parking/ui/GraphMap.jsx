@@ -1,4 +1,4 @@
-//import Select from '../../../shared/ui/Select'
+import { useResize } from '../../../shared/util/use-resize'
 import styleGraph from './GraphMap.module.css'
 
 const mapData = [
@@ -56,7 +56,9 @@ const mapData = [
   },
 ]
 
-const GraphMap = () => {
+const GraphMap = ({ map }) => {
+  const { widthWindow } = useResize()
+
   return (
     <div className={styleGraph.container}>
       <div className={styleGraph.block}></div>
@@ -73,9 +75,31 @@ const GraphMap = () => {
               borderRight: '1px solid transparent'
             }}>
               <div style={{
-                height: `calc(${item.data} * 2.5px)`,
-                borderTopLeftRadius: '10px',
-                borderTopRightRadius: '10px',
+                height: widthWindow >= 700 ?
+                  `min(calc(250px - ${item.data} * 2.5px), calc(100 * 0.2vw - ${item.data} * 0.2vw))`
+                  :
+                  `max(100px - calc(${item.data} * 1px), calc(100 * 0.3vw - ${item.data} * 0.3vw))`
+                ,
+              }}></div>
+              <div style={{
+                height: widthWindow >= 700 ?
+                  `min(calc(${item.data} * 2.5px), calc(${item.data} * 0.2vw))`
+                  :
+                  `max(calc(${item.data} * 1px), calc(${item.data} * 0.3vw))`
+                ,
+
+                borderTopLeftRadius: widthWindow >= 700 ?
+                  '10px'
+                  :
+                  '5px'
+                ,
+
+                borderTopRightRadius: widthWindow >= 700 ?
+                  '10px'
+                  :
+                  '5px'
+                ,
+
                 backgroundColor: item.data <= 40 ?
                   '#4DC3F7'
                   :
@@ -96,8 +120,6 @@ const GraphMap = () => {
                     <div className={styleGraph.timeNull}></div>
                   </>
               }
-
-
             </div>
           })
         }

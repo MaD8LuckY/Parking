@@ -1,6 +1,6 @@
 // import axios from "axios";
 
-import { apiPost } from "../../server";
+import { apiPost } from "../../../server";
 
 const authorization = async (login, password) => {
 
